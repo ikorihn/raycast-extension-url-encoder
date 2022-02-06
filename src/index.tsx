@@ -7,7 +7,7 @@ interface CommandForm {
 
 export default function Command() {
   function handleSubmit(values: CommandForm) {
-    const text = values.decode ? decodeURIComponent(values.text) : encodeURIComponent(values.text);
+    const text = values.decode ? decodeURI(values.text) : encodeURI(values.text);
     copyTextToClipboard(text);
     showToast(ToastStyle.Success, "Copied!", text);
   }
